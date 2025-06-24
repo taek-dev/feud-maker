@@ -1,0 +1,85 @@
+/* src/feud-style.css */
+
+body {
+  background: linear-gradient(to bottom right, #001F54, #004BA8);
+  color: white;
+  font-family: 'Segoe UI', sans-serif;
+  margin: 0;
+  padding: 20px;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+h1 {
+  text-align: center;
+  color: gold;
+  font-size: 3rem;
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+  margin-top: 1em;
+  color: #FFD700;
+}
+
+input, button {
+  padding: 10px;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  width: 100%;
+  font-size: 1rem;
+}
+
+input[type="number"] {
+  max-width: 100px;
+}
+
+.question-card {
+  background: #012a5e;
+  border: 2px solid gold;
+  padding: 15px;
+  border-radius: 8px;
+  margin-top: 20px;
+}
+
+.round-label {
+  font-size: 1.2rem;
+  color: gold;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.answer-row {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+button.add-answer, button.remove-answer {
+  background: #FFD700;
+  color: black;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button.remove-answer {
+  background: #ff4d4d;
+}
+
+.download-button {
+  background: gold;
+  color: black;
+  font-size: 1.1rem;
+  padding: 15px;
+  border: none;
+  border-radius: 10px;
+  width: 100%;
+  margin-top: 30px;
+  cursor: pointer;
+}
