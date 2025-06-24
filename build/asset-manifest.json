@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/feud-maker/static/css/main.dc0d5718.css",
+    "main.js": "/feud-maker/static/js/main.fe570867.js",
+    "index.html": "/feud-maker/index.html",
+    "main.dc0d5718.css.map": "/feud-maker/static/css/main.dc0d5718.css.map",
+    "main.fe570867.js.map": "/feud-maker/static/js/main.fe570867.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.dc0d5718.css",
+    "static/js/main.fe570867.js"
+  ]
+}
