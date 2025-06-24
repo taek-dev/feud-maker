@@ -19,12 +19,24 @@ export default function GameCreator() {
     setQuestions(updated);
   };
 
-  const handleAnswerChange = (qIndex, aIndex, field, value) => {
-    const updated = [...questions];
-    updated[qIndex].answers[aIndex][field] =
-      field === 'points' ? parseInt(value) || 0 : value;
-    setQuestions(updated);
-  };
+const handleAnswerChange = (qIndex, aIndex, field, value) => {
+  const updated = [...questions];
+
+  if (field === 'points') {
+    // Allow empty string while typing
+    if (value === '') {
+      updated[qIndex].answers[aIndex].points = '';
+    } else {
+      // Clamp to 0–100
+      const num = parseInt(value);
+      updated[qIndex].answers[aIndex].points = Math.max(0, Math.min(100, isNaN(num) ? 0 : num));
+    }
+  } else {
+    updated[qIndex].answers[aIndex][field] = value;
+  }
+
+  setQuestions(updated);
+};
 
   const handleAddAnswer = (qIndex) => {
     const updated = [...questions];
@@ -63,7 +75,7 @@ export default function GameCreator() {
 
   return (
     <div className="container">
-      <h1>🎉 Family Feud Game Builder 🎉</h1>
+      <h1>feud game maker</h1>
 
       <label>Game Title</label>
       <input
@@ -103,7 +115,7 @@ export default function GameCreator() {
               <input
                 type="number"
                 placeholder="Points"
-                value={a.points}
+                value={a.points === '' ? '' : a.points}
                 onChange={(e) =>
                   handleAnswerChange(qIndex, aIndex, 'points', e.target.value)
                 }
@@ -120,6 +132,7 @@ export default function GameCreator() {
           <button
             className="add-answer"
             onClick={() => handleAddAnswer(qIndex)}
+            disabled={q.answers.length >= 8}
           >
             + Add Answer
           </button>
@@ -127,7 +140,7 @@ export default function GameCreator() {
       ))}
 
       <button className="download-button" onClick={downloadGame}>
-        ⬇️ Download .feud File
+        Download File
       </button>
     </div>
   );

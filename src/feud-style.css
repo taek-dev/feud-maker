@@ -1,4 +1,7 @@
-/* src/feud-style.css */
+/* General Reset */
+* {
+  box-sizing: border-box;
+}
 
 body {
   background: linear-gradient(to bottom right, #001F54, #004BA8);
@@ -8,11 +11,14 @@ body {
   padding: 20px;
 }
 
+/* Main layout container */
 .container {
   max-width: 800px;
   margin: 0 auto;
+  padding: 0 20px;
 }
 
+/* Page title */
 h1 {
   text-align: center;
   color: gold;
@@ -20,6 +26,7 @@ h1 {
   margin-bottom: 20px;
 }
 
+/* Labels and inputs */
 label {
   display: block;
   font-weight: bold;
@@ -31,22 +38,30 @@ input, button {
   padding: 10px;
   margin-top: 5px;
   margin-bottom: 10px;
-  width: 100%;
   font-size: 1rem;
+  border: none;
+  border-radius: 5px;
+}
+
+input[type="text"] {
+  width: 100%;
 }
 
 input[type="number"] {
-  max-width: 100px;
+  width: 80px;
 }
 
+/* Question block card */
 .question-card {
   background: #012a5e;
   border: 2px solid gold;
   padding: 15px;
   border-radius: 8px;
   margin-top: 20px;
+  overflow: hidden;
 }
 
+/* Round label */
 .round-label {
   font-size: 1.2rem;
   color: gold;
@@ -54,32 +69,57 @@ input[type="number"] {
   margin-bottom: 8px;
 }
 
+/* Answers layout */
 .answer-row {
   display: flex;
   gap: 10px;
   margin-bottom: 10px;
+  align-items: center;
 }
 
-button.add-answer, button.remove-answer {
+.answer-row input[type="text"] {
+  flex: 1;
+  min-width: 150px;
+}
+
+.answer-row input[type="number"] {
+  width: 80px;
+}
+
+/* Buttons */
+button.add-answer,
+button.remove-answer,
+button.download-button {
+  cursor: pointer;
+}
+
+button.add-answer {
   background: #FFD700;
   color: black;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
+  width: auto;
+  padding: 8px 12px;
 }
 
 button.remove-answer {
   background: #ff4d4d;
+  color: white;
+  width: auto;
+  padding: 8px 12px;
 }
 
-.download-button {
+button.download-button {
   background: gold;
   color: black;
   font-size: 1.1rem;
   padding: 15px;
-  border: none;
   border-radius: 10px;
   width: 100%;
   margin-top: 30px;
-  cursor: pointer;
+}
+
+/* Disabled button style */
+button:disabled {
+  background: gray;
+  opacity: 0.6;
+  cursor: not-allowed;
 }
